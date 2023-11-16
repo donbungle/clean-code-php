@@ -1,8 +1,8 @@
 # Clean Code PHP
 
-## Table of Contents
+## Tabla de Contenidos
 
-  1. [Introduction](#introduction)
+  1. [Introducción](#introduccion)
   2. [Variables](#variables)
      * [Use meaningful and pronounceable variable names](#use-meaningful-and-pronounceable-variable-names)
      * [Use the same vocabulary for the same type of variable](#use-the-same-vocabulary-for-the-same-type-of-variable)
@@ -47,20 +47,19 @@
   8. [Don’t repeat yourself (DRY)](#dont-repeat-yourself-dry)
   9. [Translations](#translations)
 
-## Introduction
+## Introducción
 
-Software engineering principles, from Robert C. Martin's book
+Principios de ingeniería de software del libro de Robert C. Martin
 [*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
-adapted for PHP. This is not a style guide. It's a guide to producing
-readable, reusable, and refactorable software in PHP.
+adaptado para PHP. Esto no es una guía de estilos. 
+Es una guía para producir software legible, reusable y refactorizable en PHP.
 
-Not every principle herein has to be strictly followed, and even fewer will be universally
-agreed upon. These are guidelines and nothing more, but they are ones codified over many
-years of collective experience by the authors of *Clean Code*.
+No cada principio aquí tiene que ser seguido estrictamente e incluso menos universalmente aceptado.
+Estas son guías y nada más, per son unas basadas en muchos años de experiencia por los autores de Clean Code.
 
-Inspired from [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript).
+Inspirado en [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript).
 
-Although many developers still use PHP 5, most of the examples in this article only work with PHP 7.1+.
+A pesar de que muchos desarrolladores aún usan PHP 5, la mayoria de los ejemplos en este eariculo solo funcionan en PHP 7.1+
 
 ## Variables
 
