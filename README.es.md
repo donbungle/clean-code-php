@@ -4,13 +4,13 @@
 
   1. [Introducción](#introduccion)
   2. [Variables](#variables)
-     * [Use meaningful and pronounceable variable names](#use-meaningful-and-pronounceable-variable-names)
-     * [Use the same vocabulary for the same type of variable](#use-the-same-vocabulary-for-the-same-type-of-variable)
-     * [Use searchable names (part 1)](#use-searchable-names-part-1)
-     * [Use searchable names (part 2)](#use-searchable-names-part-2)
-     * [Use explanatory variables](#use-explanatory-variables)
-     * [Avoid nesting too deeply and return early (part 1)](#avoid-nesting-too-deeply-and-return-early-part-1)
-     * [Avoid nesting too deeply and return early (part 2)](#avoid-nesting-too-deeply-and-return-early-part-2)
+     * [Usa nombres de variables significativos y pronunciables](#use-meaningful-and-pronounceable-variable-names)
+     * [Usa el mismo vocabulario para el mismo tipo de variable](#use-the-same-vocabulary-for-the-same-type-of-variable)
+     * [Usa nombres que se puedan buscar (parte 1)](#use-searchable-names-part-1)
+     * [Usa nombres que se puedan buscar (parte 2)](#use-searchable-names-part-2)
+     * [Usa variables explicativas](#use-explanatory-variables)
+     * [Evite anidar demasiado profundamente y regrese pronto (parte 1)](#avoid-nesting-too-deeply-and-return-early-part-1)
+     * [Evite anidar demasiado profundamente y regrese pronto (parte 2)](#avoid-nesting-too-deeply-and-return-early-part-2)
      * [Avoid Mental Mapping](#avoid-mental-mapping)
      * [Don't add unneeded context](#dont-add-unneeded-context)
   3. [Comparison](#comparison)
@@ -63,15 +63,15 @@ A pesar de que muchos desarrolladores aún usan PHP 5, la mayoria de los ejemplo
 
 ## Variables
 
-### Use meaningful and pronounceable variable names
+### Usa nombres de variables significativos y pronunciables
 
-**Bad:**
+**Mal:**
 
 ```php
 $ymdstr = $moment->format('y-m-d');
 ```
 
-**Good:**
+**Bien:**
 
 ```php
 $currentDate = $moment->format('y-m-d');
@@ -79,9 +79,9 @@ $currentDate = $moment->format('y-m-d');
 
 **[⬆ back to top](#table-of-contents)**
 
-### Use the same vocabulary for the same type of variable
+### Usa el mismo vocabulario para el mismo tipo de variable
 
-**Bad:**
+**Mal:**
 
 ```php
 getUserInfo();
@@ -90,7 +90,7 @@ getUserRecord();
 getUserProfile();
 ```
 
-**Good:**
+**Bien:**
 
 ```php
 getUser();
@@ -98,29 +98,30 @@ getUser();
 
 **[⬆ back to top](#table-of-contents)**
 
-### Use searchable names (part 1)
+### Usa nombres que se puedan buscar (parte 1)
 
-We will read more code than we will ever write. It's important that the code we do write is
-readable and searchable. By *not* naming variables that end up being meaningful for
-understanding our program, we hurt our readers.
-Make your names searchable.
+Leeremos más código del que escribiremos. Es importante que el código que escribamos sea
+legible y buscable.
+Al *no* nombrar variables que terminan siendo significativas para
+comprender nuestro programa, perjudicamos a nuestros lectores.
+Haga que sus nombres se puedan buscar.
 
-**Bad:**
+**Mal:**
 
 ```php
 // What the heck is 448 for?
 $result = $serializer->serialize($data, 448);
 ```
 
-**Good:**
+**Bien:**
 
 ```php
 $json = $serializer->serialize($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 ```
 
-### Use searchable names (part 2)
+### Usa nombres que se puedan buscar (parte 2)
 
-**Bad:**
+**Mal:**
 
 ```php
 class User
@@ -138,7 +139,7 @@ if ($user->access & 4) {
 $user->access ^= 2;
 ```
 
-**Good:**
+**Bien:**
 
 ```php
 class User
@@ -165,9 +166,9 @@ $user->access ^= User::ACCESS_CREATE;
 
 **[⬆ back to top](#table-of-contents)**
 
-### Use explanatory variables
+### Usa variables explicativas
 
-**Bad:**
+**Mal:**
 
 ```php
 $address = 'One Infinite Loop, Cupertino 95014';
@@ -177,9 +178,9 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($matches[1], $matches[2]);
 ```
 
-**Not bad:**
+**Menos mal:**
 
-It's better, but we are still heavily dependent on regex.
+Es mejor, pero todavía dependemos en gran medida de las expresiones regulares.
 
 ```php
 $address = 'One Infinite Loop, Cupertino 95014';
@@ -190,9 +191,9 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($city, $zipCode);
 ```
 
-**Good:**
+**Bien:**
 
-Decrease dependence on regex by naming subpatterns.
+Disminuye la dependencia de las expresiones regulares nombrando subpatrones.
 
 ```php
 $address = 'One Infinite Loop, Cupertino 95014';
@@ -204,10 +205,10 @@ saveCityZipCode($matches['city'], $matches['zipCode']);
 
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid nesting too deeply and return early (part 1)
+### Evite anidar demasiado profundamente y regrese temprano (parte 1)
 
-Too many if-else statements can make your code hard to follow. Explicit is better
-than implicit.
+Demasiadas declaraciones if-else pueden hacer que su código sea difícil de seguir. Explícito es mejor
+que implícito.
 
 **Bad:**
 
@@ -249,9 +250,9 @@ function isShopOpen(string $day): bool
 
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid nesting too deeply and return early (part 2)
+### Evite anidar demasiado profundamente y regrese temprano (parte 2)
 
-**Bad:**
+**Mal:**
 
 ```php
 function fibonacci(int $n)
@@ -269,7 +270,7 @@ function fibonacci(int $n)
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```php
 function fibonacci(int $n): int
@@ -288,12 +289,12 @@ function fibonacci(int $n): int
 
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid Mental Mapping
+### Evite el mapeo mental
 
-Don’t force the reader of your code to translate what the variable means.
-Explicit is better than implicit.
+No obligue al lector de su código a traducir lo que significa la variable.
+Lo explícito es mejor que lo implícito.
 
-**Bad:**
+**Mal:**
 
 ```php
 $l = ['Austin', 'New York', 'San Francisco'];
@@ -310,7 +311,7 @@ for ($i = 0; $i < count($l); $i++) {
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```php
 $locations = ['Austin', 'New York', 'San Francisco'];
@@ -327,12 +328,12 @@ foreach ($locations as $location) {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Don't add unneeded context
+### No agregue contexto innecesario
 
-If your class/object name tells you something, don't repeat that in your
-variable name.
+Si el nombre de la clase/objeto dice algo, no lo repita en el
+nombre de variable.
 
-**Bad:**
+**Mal:**
 
 ```php
 class Car
@@ -347,7 +348,7 @@ class Car
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```php
 class Car
@@ -364,13 +365,13 @@ class Car
 
 **[⬆ back to top](#table-of-contents)**
 
-## Comparison
+## Comparación
 
-### Use [identical comparison](http://php.net/manual/en/language.operators.comparison.php)
+### Usa [comparación idéntica](http://php.net/manual/en/language.operators.comparison.php)
 
-**Not good:**
+**Menos mal:**
 
-The simple comparison will convert the string into an integer.
+La comparación simple convertirá la cadena en un número entero.
 
 ```php
 $a = '42';
@@ -381,12 +382,12 @@ if ($a != $b) {
 }
 ```
 
-The comparison `$a != $b` returns `FALSE` but in fact it's `TRUE`!
-The string `42` is different than the integer `42`.
+La comparación `$a != $b` devuelve `FALSO` pero en realidad es `VERDADERO`.
+La cadena `42` es diferente del número entero `42`.
 
-**Good:**
+**Bien:**
 
-The identical comparison will compare type and value.
+La comparación idéntica comparará el tipo y el valor.
 
 ```php
 $a = '42';
@@ -397,15 +398,15 @@ if ($a !== $b) {
 }
 ```
 
-The comparison `$a !== $b` returns `TRUE`.
+La comparación `$a !== $b` devuelve `VERDADERO`.
 
 **[⬆ back to top](#table-of-contents)**
 
-### Null coalescing operator
+### Operadora de fusión nula
 
-Null coalescing is a new operator [introduced in PHP 7](https://www.php.net/manual/en/migration70.new-features.php). The null coalescing operator `??` has been added as syntactic sugar for the common case of needing to use a ternary in conjunction with `isset()`. It returns its first operand if it exists and is not `null`; otherwise it returns its second operand.
+La fusión nula es un nuevo operador [introducido en PHP 7] (https://www.php.net/manual/en/migration70.new-features.php). El operador coalescente nulo `??` se ha agregado como azúcar sintáctico para el caso común de necesidad de usar un ternario junto con `isset()`. Devuelve su primer operando si existe y no es "nulo"; de lo contrario devuelve su segundo operando.
 
-**Bad:**
+**Mal:**
 
 ```php
 if (isset($_GET['name'])) {
@@ -417,20 +418,20 @@ if (isset($_GET['name'])) {
 }
 ```
 
-**Good:**
+**Bien:**
 ```php
 $name = $_GET['name'] ?? $_POST['name'] ?? 'nobody';
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
-## Functions
+## Funciones
 
-### Use default arguments instead of short circuiting or conditionals
+### Usa argumentos predeterminados en lugar de cortocircuitos o condicionales
 
-**Not good:**
+**Menos mal:**
 
-This is not good because `$breweryName` can be `NULL`.
+Esto no es bueno porque `$breweryName` puede ser `NULL`.
 
 ```php
 function createMicrobrewery($breweryName = 'Hipster Brew Co.'): void
@@ -439,9 +440,9 @@ function createMicrobrewery($breweryName = 'Hipster Brew Co.'): void
 }
 ```
 
-**Not bad:**
+**Menos mal:**
 
-This opinion is more understandable than the previous version, but it better controls the value of the variable.
+Esta opinión es más comprensible que la versión anterior, pero controla mejor el valor de la variable.
 
 ```php
 function createMicrobrewery($name = null): void
@@ -451,9 +452,9 @@ function createMicrobrewery($name = null): void
 }
 ```
 
-**Good:**
+**Bien:**
 
- You can use [type hinting](https://www.php.net/manual/en/language.types.declarations.php) and be sure that the `$breweryName` will not be `NULL`.
+ Puede utilizar [sugerencias de tipo](https://www.php.net/manual/en/language.types.declarations.php) y asegurarse de que `$breweryName` no sea `NULL`.
 
 ```php
 function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
@@ -464,18 +465,18 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
 
 **[⬆ back to top](#table-of-contents)**
 
-### Function arguments (2 or fewer ideally)
+### Argumentos de función (idealmente 2 o menos)
 
-Limiting the amount of function parameters is incredibly important because it makes
-testing your function easier. Having more than three leads to a combinatorial explosion
-where you have to test tons of different cases with each separate argument.
+Limitar la cantidad de parámetros de función es increíblemente importante porque hace
+probar su función más fácilmente. Tener más de tres conduce a una explosión combinatoria
+donde tienes que probar toneladas de casos diferentes con cada argumento por separado.
 
-Zero arguments is the ideal case. One or two arguments is ok, and three should be avoided.
-Anything more than that should be consolidated. Usually, if you have more than two
-arguments then your function is trying to do too much. In cases where it's not, most
-of the time a higher-level object will suffice as an argument.
+Cero argumentos es el caso ideal. Uno o dos argumentos están bien y tres deben evitarse.
+Todo lo que vaya más allá de eso debería consolidarse. Generalmente, si tienes más de dos
+argumentos entonces su función está intentando hacer demasiado. En los casos en que no lo es, la mayoría
+de las veces un objeto de nivel superior será suficiente como argumento.
 
-**Bad:**
+**Mal:**
 
 ```php
 class Questionnaire
@@ -495,7 +496,7 @@ class Questionnaire
 }
 ```
 
-**Good:**
+**Bien:**
 
 ```php
 class Name
